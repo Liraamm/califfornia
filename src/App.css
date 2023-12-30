@@ -2,37 +2,239 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Comfortaa", cursive;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h1 {
+  color: #6a205e;
+}
+
+h2 {
+  color: #5d447c;
+}
+
+/* Carousel */
+.pic-ctn {
+  width: 100vw;
+  height: 200px;
+}
+
+@keyframes display {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-200px);
+    opacity: 0;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.pic-ctn {
+  position: relative;
+  width: 100vw;
+  height: 300px;
+  margin-top: 15vh;
+}
+
+.pic-ctn > img {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 100px);
+  opacity: 0;
+  animation: display 10s infinite;
+}
+
+img:nth-child(2) {
+  animation-delay: 2s;
+}
+img:nth-child(3) {
+  animation-delay: 4s;
+}
+img:nth-child(4) {
+  animation-delay: 6s;
+}
+img:nth-child(5) {
+  animation-delay: 8s;
+}
+
+/* Other */
+
+.Hero:hover {
+  cursor: default !important;
+}
+
+.Catalog:hover {
+  background-color: #6a205e !important;
+  color: white !important;
+}
+
+.Contacts:hover {
+  background-color: white !important;
+  border: 3px solid #6a205e !important;
+}
+
+.Footer {
+  cursor: default !important;
+}
+
+.AuthPage {
+  background-color: #e2ccff;
+}
+
+.buttonAuth {
+  display: block;
+  margin: 0 auto;
+  border: none;
   color: white;
+  border-radius: 30px;
+  background-color: #6a205e;
+  font-size: 22px;
+  height: 65px;
+  width: 16%;
+  margin-top: 4%;
 }
 
-.App-link {
-  color: #61dafb;
+.DetailPage {
+  background-color: #dfdddd;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* navbar adaptive */
+@media screen and (min-width: 1024px) {
+  .Navbar-main {
+    width: 100% !important;
   }
-  to {
-    transform: rotate(360deg);
+  #carouselExampleIndicators {
+    bottom: -100px !important;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  #carouselExampleIndicators {
+    bottom: 0px !important;
+  }
+}
+
+/* @media screen and (min-width: 1024px) {
+  #carouselExampleIndicators {
+    bottom: -100px !important;
+  }
+} */
+/* 
+.Navbar-main {
+  flex-grow: 1;
+  font-family: "Comfortaa", cursive;
+  width: 100% !important;
+  margin: 0 auto;
+} */
+
+@media screen and (max-width: 768px) {
+  .Navbar-main {
+    width: 125% !important;
+  }
+  #carouselExampleIndicators {
+    bottom: -200px !important;
+    left: 40px;
+    right: -120px;
+  }
+
+  .Hero {
+    width: 125%;
+  }
+
+  .homePageTextCatalog {
+    margin-left: 15%;
+  }
+
+  .catalogOptions {
+    margin-left: 15%;
+  }
+
+  .footerMain {
+    width: 125%;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .Navbar-main {
+    width: 230% !important;
+  }
+  .Logo-navbar {
+    display: block !important;
+  }
+  #carouselExampleIndicators {
+    bottom: -180px !important;
+    left: 40px;
+    right: -500px;
+  }
+  .Hero {
+    width: 230%;
+  }
+
+  .homePageTextCatalog {
+    margin-left: 80%;
+  }
+
+  .catalogOptions {
+    width: 200%;
+  }
+
+  .footerMain {
+    width: 230%;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .Navbar-main {
+    width: 270% !important;
+  }
+  .Logo-navbar {
+    display: block !important;
+  }
+  .Hero {
+    width: 270%;
+  }
+  .homePageTextCatalog {
+    margin-left: 90%;
+  }
+
+  .catalogOptions {
+    width: 230%;
+  }
+
+  .footerMain {
+    width: 270%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Navbar-main {
+    width: 300% !important;
+  }
+  .Logo-navbar {
+    display: block !important;
+  }
+  .Hero {
+    width: 300%;
+  }
+
+  .catalogOptions {
+    width: 270%;
+  }
+  .footerMain {
+    width: 300%;
   }
 }

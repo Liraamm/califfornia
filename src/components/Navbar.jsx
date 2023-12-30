@@ -13,6 +13,7 @@ import { Button } from "@mui/material";
 import NavbarCaliffornia from "../assets/NavbarIcon.svg";
 import Basket from "../assets/Basket.svg";
 import PinkSearch from "../assets/Search.svg";
+import { Link, useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -57,11 +58,20 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
   return (
     <Box
+      className="Navbar-main"
+      // style={{
+      //   flexGrow: 1,
+      //   fontFamily: '"Comfortaa", cursive',
+      // width: "100%",
+      // }}
       sx={{
-        flexGrow: 1,
-        fontFamily: '"Comfortaa", cursive',
+        fontFamily: "Comfortaa, cursive",
+        // width: "100%",
+        margin: "0 auto",
       }}
     >
       <AppBar
@@ -84,17 +94,23 @@ export default function Navbar() {
               marginLeft: "13%",
               color: "#ffff",
             }}
+            className="Catalog"
+            component={Link}
+            to="/catalog"
           >
             Каталог
           </Button>
           <Typography
+            className="Logo-navbar"
             variant="h6"
             noWrap
-            component="div"
+            // component="div"
             sx={{
               flexGrow: 0.7,
               display: { xs: "none", sm: "block" },
             }}
+            component={Link}
+            to="/"
           >
             <img src={NavbarCaliffornia} alt="Navbar Icon" width={120} />
           </Typography>
@@ -112,6 +128,7 @@ export default function Navbar() {
               textTransform: "capitalize",
               fontWeight: "bold",
             }}
+            className="Contacts"
           >
             Контакты
           </Button>
@@ -120,12 +137,14 @@ export default function Navbar() {
             alt="PinkSearch"
             width={40}
             style={{ marginLeft: "1%" }}
+            onClick={() => navigate("/catalog")}
           />
           <img
             src={Basket}
             alt="Basket"
             width={40}
             style={{ marginLeft: "1%" }}
+            onClick={() => navigate("/cart")}
           />
           {/* <Search>
             <SearchIconWrapper>
